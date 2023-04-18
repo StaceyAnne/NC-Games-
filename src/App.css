@@ -3,38 +3,41 @@
 }
 
 body {
-  margin: 0; 
-  max-width: 100%; 
+  margin: 0;
+  max-width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* home  */
 
 .header {
-  background-color: rgb(81, 121, 177); 
-  display: flex; 
+  background-color: rgb(81, 121, 177);
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-between; 
+  justify-content: space-between;
   align-items: center;
 }
 
-button {
-  margin: 2%; 
+.sortCategory,
+.sort {
+  margin: 2%;
 }
 
-h1 { 
+h1 {
   margin: 0;
   text-decoration: none;
-  padding: 3%; 
-  color: white; 
+  padding: 3%;
+  color: white;
   border-bottom: none;
-
 }
 
 .header img {
   border: solid white;
-  border-radius: 100%; 
-  height: 5vh; 
-  width:  auto; 
+  border-radius: 100%;
+  height: 5vh;
+  width: auto;
   margin: 50%;
 }
 
@@ -42,31 +45,104 @@ a {
   text-decoration: none;
 }
 
+/* all reviews styling */
+
 .reviewList {
-   display: flex; 
-  flex-wrap: wrap; 
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   list-style-type: none;
-
-} 
-
-
-.reviewList li {
- border: solid rgb(81, 121, 177); 
- max-width: 400px; 
- margin: 3%; 
+  margin: 4%;
 }
 
+.reviewList li {
+  border: solid rgb(81, 121, 177);
+  max-width: 400px;
+  margin: 3%;
+}
 
 .reviewCard img {
   width: 70%;
-  height: auto; 
-} 
+  height: auto;
+}
 
+/* single review page */
+.singleItem {
+  display: flex;
+  justify-content: center;
+}
 
+.singleReview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 6%;
+  padding: 0;
+  border: solid rgb(81, 121, 177);
+  max-width: 400vw;
+}
 
+.singleReview img {
+  width: 100%;
+}
 
+.backReviews {
+  margin: 3%;
+  flex-grow: 1;
+}
 
+.singleReview h2 {
+  background-color: rgb(114, 144, 187);
+  color: white;
+  margin: 0;
+  padding: 4%;
+}
 
+.singleReview p {
+  padding: 2% 6%;
+}
 
+p.author {
+  padding: 0;
+  margin: 4%;
+}
+
+.backReviews {
+  max-width: 50%;
+  margin: 4% auto;
+}
+
+/*  view on a larger screen */
+@media only screen and (min-width: 800px) {
+  .singleReviewBody {
+    display: flex;
+    padding: 0;
+    min-height: 50vh;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+  .singleReview img {
+    width: 40%;
+    margin: 2%;
+    padding: 0;
+    border-radius: 1%;
+  }
+
+  p.reviewContent {
+    width: 60%;
+    padding: 4%;
+    margin: 0;
+    text-align: left;
+  }
+
+  p.author {
+    margin: 1%;
+  }
+
+  .reviewInfo {
+    display: flex;
+    flex-direction: column;
+  }
+}
