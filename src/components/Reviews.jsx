@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { getReviews } from "../api";
 import ReviewCard from "../components/ReviewCard";
 
+
 const Reviews = ({ category }) => {
   const [reviews, setReviews] = useState([]);
+  const [selectedReviw, setSelectedReview] = useState("")
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,6 +14,8 @@ const Reviews = ({ category }) => {
       setLoading(false);
     });
   }, [category]);
+
+  
 
   if (loading) {
     return <p>Loading....</p>;

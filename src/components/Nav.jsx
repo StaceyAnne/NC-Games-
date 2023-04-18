@@ -7,6 +7,7 @@ const Nav = () => {
  return (
    <Link to="/reviews">
     <p>View all reviews</p>
+    <p>View by category</p>
   </Link>
  )
 }
