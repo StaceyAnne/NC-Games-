@@ -5,9 +5,7 @@ const Header = () => {
         
         <div className="header">
             <Link to="/users">
-                <div className="userIcon">
             <img src={image} alt="user icon"></img>
-            </div>
             </Link>
             <Link to="/">
                  <h1>NC GAMES</h1>
