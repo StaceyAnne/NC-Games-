@@ -2,11 +2,13 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getReviewById } from "../api";
 import { Link } from "react-router-dom";
+import CommentCard from "./CommentCard";
 
 const SingleReview = () => {
   const [singleReview, setSingleReview] = useState("");
   const { review_id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [commentSection, setCommentSection] = useState([])
 
   useEffect(() => {
     getReviewById(review_id).then((response) => {
@@ -22,7 +24,8 @@ const SingleReview = () => {
   const formattedDate = newDate[0];
   const category = singleReview.category[0].toUpperCase() + singleReview.category.slice(1); 
 
-console.log(singleReview)
+    
+
   return (
     <div className="singleItem">
       <section className="singleReview">
@@ -45,23 +48,23 @@ console.log(singleReview)
             <p>Votes: {singleReview.votes}</p>
             <form>
               <label htmlFor="vote">Add vote</label>
-              <input type="number" name="vote"></input>
+              <input type="number" name="vote" className="voteBox"></input>
               <button>Submit vote</button>
             </form>
           </div>
           <div className="commentDiv">
             <p>{singleReview.comment_count} comments</p>
-            <form>
-              <label htmlFor="comment">Add a comment: </label>
-              <input type="text" name="comment"></input>
-              <button>Submit comment</button>
-            </form>
+            <button className="commentLink">View all comments</button>
+            <div className='allComments'>
+                <CommentCard singleReview={singleReview}/>
+                </div>
           </div>
         </div>
         <Link to="/">
           <button className="backReviews">Back to reviews</button>
         </Link>
       </section>
+      <section className=""></section>
     </div>
   );
 };
