@@ -20,19 +20,26 @@ const SingleReview = () => {
   const date = new Date(singleReview.created_at);
   const newDate = date.toString().split("GMT");
   const formattedDate = newDate[0];
+  const category = singleReview.category[0].toUpperCase() + singleReview.category.slice(1); 
 
+console.log(singleReview)
   return (
     <div className="singleItem">
       <section className="singleReview">
         <h2>{singleReview.title}</h2>
         <div className="singleReviewBody">
           <img src={singleReview.review_img_url} alt={singleReview.title}></img>
+     
+     
           <p className="reviewContent">{singleReview.review_body}</p>
+        
         </div>
         <p className="author">
           Written by: {<Link to="/users">{singleReview.owner}</Link>} on{" "}
           {formattedDate}
         </p>
+        <p>Category: {category}</p>
+
         <div className="reviewInfo">
           <div className="voteContainer">
             <p>Votes: {singleReview.votes}</p>

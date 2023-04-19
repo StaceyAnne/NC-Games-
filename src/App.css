@@ -118,10 +118,10 @@ p.author {
   .singleReviewBody {
     display: flex;
     padding: 0;
-    min-height: 50vh;
+    min-height: 40vh;
     overflow: hidden;
     justify-content: center;
-    align-items: center;
+    align-items:center;
   }
   .singleReview img {
     width: 40%;
@@ -131,10 +131,11 @@ p.author {
   }
 
   p.reviewContent {
-    width: 60%;
+    width: 40%;
     padding: 4%;
-    margin: 0;
+    margin: 2%;
     text-align: left;
+   
   }
 
   p.author {
@@ -145,4 +146,6 @@ p.author {
     display: flex;
     flex-direction: column;
   }
+
+ 
 }
