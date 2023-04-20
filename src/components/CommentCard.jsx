@@ -11,7 +11,6 @@ const CommentCard = ({review, commentSection, setCommentSection, commentShow}) =
 
     useEffect(() => {
         getCommentsByReviewId(review).then(({ comments } ) => {
-       
            setCommentSection(comments)
            setLoading(false)
        }) 

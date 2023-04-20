@@ -126,21 +126,22 @@ p.author {
     min-height: 40vh;
     overflow: hidden;
     justify-content: center;
-    align-items:center;
+    align-items: start;  
   }
   .singleReview img {
     width: 40%;
-    margin: 2%;
-    padding: 0;
+    margin: 0;
+    padding: 4%;
     border-radius: 1%;
   }
 
   p.reviewContent {
-    width: 40%;
-    padding: 4%;
-    margin: 2%;
+    width: 60%;
+    padding: 4% 4% 4% 0;
+    margin: 0%;
     text-align: left;
-   
+    line-height: 1.5; 
+  
   }
 
   p.author {
@@ -176,4 +177,29 @@ li.commentListItem {
   padding: 0;
 }
 
+/* votes */
 
+
+.addVote, .downVote {
+  margin: 0; 
+  font-size: 1.5rem; 
+  border: none; 
+  border-radius: 10%; 
+  color: white; 
+ 
+}
+
+.addVote {
+  background-color: rgb(135, 232, 135); 
+  
+}
+
+.downVote {
+  background-color: rgb(241, 130, 130); 
+  padding-bottom: 0; 
+}
+
+.voteDiv p {
+  margin: 0; 
+  padding: 1.5%; 
+}
