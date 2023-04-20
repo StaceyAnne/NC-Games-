@@ -1,23 +1,26 @@
 
 import { useState, useEffect } from "react";
-import { getAllComments } from "../api";
+import { getCommentsByReviewId } from "../api";
 import { Axios } from "axios";
 import SingleReview from '../components/SingleReview'
 import { formatDate } from "../utils";
 
 
 const CommentCard = ({review, commentSection, setCommentSection, commentShow}) => {
-    
+    const [loading, setLoading] = useState(true)    
 
     useEffect(() => {
-        getAllComments(review).then(({ comments } ) => {
+        getCommentsByReviewId(review).then(({ comments } ) => {
        
            setCommentSection(comments)
+           setLoading(false)
        }) 
     }, [commentShow])
 
-    if (commentShow) {
+    if (loading) return <p>Loading....</p>
 
+    if (commentShow) {
+            if (commentSection.length === 0) return <p>No comments to show</p>
        return(
         <section className="commentBox">
        <ul className="commentList">

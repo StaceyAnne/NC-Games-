@@ -33,8 +33,6 @@ const SingleReview = () => {
   if (loading) return <p>Loading...</p>;
 
  
-
-
   const category = singleReview.category[0].toUpperCase() + singleReview.category.slice(1); 
  
   const formattedDate = formatDate(singleReview.created_at); 

@@ -15,7 +15,6 @@ function App() {
      <Route path="/" element={<Nav/>}/>
      <Route path="/reviews" element={<Reviews/>}/>
      <Route path="/review/:review_id" element={<SingleReview/>}/>
-     {/* <Route path="/review/:review_id/comments" element={<CommentCard/>}></Route> */}
      </Routes>
     </div>
 
