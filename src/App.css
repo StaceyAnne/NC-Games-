@@ -176,4 +176,8 @@ li.commentListItem {
   padding: 0;
 }
 
+textarea {
+  width: 50%; 
+}
+
 
