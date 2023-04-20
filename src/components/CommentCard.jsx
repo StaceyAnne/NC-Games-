@@ -6,7 +6,7 @@ import SingleReview from '../components/SingleReview'
 import { formatDate } from "../utils";
 
 
-const CommentCard = ({review, commentSection, setCommentSection}) => {
+const CommentCard = ({review, commentSection, setCommentSection, commentShow}) => {
     
 
     useEffect(() => {
@@ -14,9 +14,9 @@ const CommentCard = ({review, commentSection, setCommentSection}) => {
        
            setCommentSection(comments)
        }) 
-    }, [])
+    }, [commentShow])
 
-    
+    if (commentShow) {
 
        return(
         <section className="commentBox">
@@ -39,6 +39,7 @@ const CommentCard = ({review, commentSection, setCommentSection}) => {
        </form>
        </section>
        )
+    }
  
 }
 

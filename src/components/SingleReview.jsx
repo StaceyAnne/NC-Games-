@@ -10,7 +10,7 @@ const SingleReview = () => {
   const { review_id } = useParams();
   const [loading, setLoading] = useState(true);
   const [commentSection, setCommentSection] = useState([])
-  const [commentShow, setCommentShow] = useState([])
+  const [commentShow, setCommentShow] = useState(false)
 
   useEffect(() => {
     getReviewById(review_id).then((response) => {
@@ -19,9 +19,16 @@ const SingleReview = () => {
     });
   }, []);
 
-  // const handleClick = () => {
 
-  // }
+
+  const handleClick = () => {
+    if (!commentShow) {
+        setCommentShow(true)
+    }
+    else {
+      setCommentShow(false)
+    }
+  }
 
   if (loading) return <p>Loading...</p>;
 
@@ -59,9 +66,9 @@ const SingleReview = () => {
           </div>
           <div className="commentDiv">
             <p>{singleReview.comment_count} comments</p>
-            <button className="commentLink">View all comments</button>
+            <button className="commentLink" onClick={handleClick}>View all comments</button>
             <div className='allComments'>
-             <CommentCard review={singleReview.review_id} commentSection={commentSection} setCommentSection={setCommentSection}/>
+          <CommentCard review={singleReview.review_id} commentSection={commentSection} setCommentSection={setCommentSection} commentShow={commentShow}/>
                 </div>
           </div>
         </div>
