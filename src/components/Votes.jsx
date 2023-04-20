@@ -7,7 +7,7 @@ const Votes = ({ review, votes }) => {
 
     const handleAddVote = () => {
         setError("")
-        setVoteCount(() => voteCount + 1) 
+        setVoteCount((voteCount) => voteCount + 1) 
     
             patchVoteByReviewId(review, 1).then((result) => {
             }).catch(() => {
@@ -18,9 +18,8 @@ const Votes = ({ review, votes }) => {
 
     const handleDownVote = () => {
         setError("")
-        setVoteCount(() => voteCount - 1) 
+        setVoteCount((voteCount) => voteCount - 1) 
         patchVoteByReviewId(review, -1).then((result) => {
-            console.log(result)
         }).catch(() => {
            setError("vote failed")
            setVoteCount((voteCount) => voteCount-1)
