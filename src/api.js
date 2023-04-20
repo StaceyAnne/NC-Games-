@@ -17,3 +17,16 @@ export const getReviews = (category) => {
     });
   }
 };
+
+export const getReviewById = (review_id) => {
+  return gamesApi.get(`/reviews/${review_id}`).then(({ data: {review} }) => {
+      return review; 
+
+  })
+}
+
+export const getCommentsByReviewId = (review) => {
+  return gamesApi.get(`/reviews/${review}/comments`).then(({ data }) => {
+    return data; 
+  })
+}
