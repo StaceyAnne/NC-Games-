@@ -16,8 +16,8 @@ const SingleReview = () => {
     getReviewById(review_id).then((response) => {
       setSingleReview(response);
       setLoading(false);
-    });
-  }, []);
+    }, [commentSection]);
+  });
 
 
 

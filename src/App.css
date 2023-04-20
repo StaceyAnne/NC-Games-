@@ -157,10 +157,16 @@ p.author {
 
 /* comment card */
 
+.commentBox {
+  border: solid grey; 
+  margin: 1em; 
+  padding: 0.5em; 
+}
+
 .commentList {
   background-color: rgb(221, 220, 220); 
   list-style-type: none;
-  margin: 2rem; 
+  margin: 0; 
   padding: 0; 
 }
 
@@ -172,7 +178,8 @@ p.author {
 
 li.commentListItem {
   border-bottom: solid black; 
-  margin: 0; 
+  border-top: solid grey; 
+  margin: 1em 0; 
   padding: 0;
 }
 

@@ -11,21 +11,32 @@ const CommentCard = ({
   commentShow,
 }) => {
   const [loading, setLoading] = useState(true);
-  const [commentValue, setCommentValue] = useState("")
+  const [commentValue, setCommentValue] = useState("");
+  const [newComment, setNewComment] = useState([]);
+  // const [postingComment, setPostingComment] = useState(false)
 
   useEffect(() => {
     getCommentsByReviewId(review).then(({ comments }) => {
       setCommentSection(comments);
       setLoading(false);
     });
-  }, [commentShow]);
+  }, []); /*[commentShow]*/
 
   function handleSubmit(event) {
-    event.preventDefault()
-    console.log("added comment");
+    event.preventDefault();
+    //setPostingComment(true)
+    setCommentSection()
+    console.log(event.target);
+  }
+
+  function handleText(event) {
+    event.preventDefault();
+    console.log(event.target.value);
+    setCommentValue(event.target.value);
   }
 
   if (loading) return <p>Loading....</p>;
+  //if (postingComment) return <p>posting comment.....</p>
 
   if (commentShow) {
     if (commentSection.length === 0) return <p>No comments to show</p>;
@@ -47,11 +58,16 @@ const CommentCard = ({
             );
           })}
         </ul>
-        <form>
-          <label htmlFor="addComment">Add a comment: </label>
-          {/* <input type="textbox" id='addComment'></input> */}
-          <textarea></textarea>
-          <button onClick={handleSubmit}>post comment</button>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="comment">Add a comment: </label>
+          <textarea
+            name="commenttextArea"
+            value={commentValue}
+            id="comment"
+            type="text"
+            onChange={handleText}
+          ></textarea>
+          <button>post comment</button>
         </form>
       </section>
     );

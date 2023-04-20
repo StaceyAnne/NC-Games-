@@ -30,3 +30,8 @@ export const getCommentsByReviewId = (review) => {
     return data; 
   })
 }
+
+export const postCommentByReviewId = (review_id) => {
+  const input = { username: user }
+  return gamesApi.post(`/reviews/${review_id}/comments`, input)
+}
