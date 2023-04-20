@@ -26,9 +26,8 @@ export const getReviewById = (review_id) => {
   })
 }
 
-export const getAllComments = (reviewId) => {
-  return gamesApi.get(`/reviews/${reviewId}/comments`).then((response) => {
-    console.log(response)
-    return response; 
+export const getAllComments = (review) => {
+  return gamesApi.get(`/reviews/${review}/comments`).then(({ data }) => {
+    return data; 
   })
 }

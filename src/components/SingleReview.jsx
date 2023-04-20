@@ -1,29 +1,36 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import CommentCard from "./CommentCard";
 import { getReviewById } from "../api";
 import { Link } from "react-router-dom";
-import CommentCard from "./CommentCard";
+import { formatDate } from "../utils";
 
 const SingleReview = () => {
   const [singleReview, setSingleReview] = useState("");
   const { review_id } = useParams();
   const [loading, setLoading] = useState(true);
   const [commentSection, setCommentSection] = useState([])
+  const [commentShow, setCommentShow] = useState([])
 
   useEffect(() => {
     getReviewById(review_id).then((response) => {
       setSingleReview(response);
       setLoading(false);
     });
-  });
+  }, []);
+
+  // const handleClick = () => {
+
+  // }
 
   if (loading) return <p>Loading...</p>;
 
-  const date = new Date(singleReview.created_at);
-  const newDate = date.toString().split("GMT");
-  const formattedDate = newDate[0];
-  const category = singleReview.category[0].toUpperCase() + singleReview.category.slice(1); 
+ 
 
+
+  const category = singleReview.category[0].toUpperCase() + singleReview.category.slice(1); 
+ 
+  const formattedDate = formatDate(singleReview.created_at); 
     
 
   return (
@@ -32,8 +39,6 @@ const SingleReview = () => {
         <h2>{singleReview.title}</h2>
         <div className="singleReviewBody">
           <img src={singleReview.review_img_url} alt={singleReview.title}></img>
-     
-     
           <p className="reviewContent">{singleReview.review_body}</p>
         
         </div>
@@ -56,7 +61,7 @@ const SingleReview = () => {
             <p>{singleReview.comment_count} comments</p>
             <button className="commentLink">View all comments</button>
             <div className='allComments'>
-                <CommentCard singleReview={singleReview}/>
+             <CommentCard review={singleReview.review_id} commentSection={commentSection} setCommentSection={setCommentSection}/>
                 </div>
           </div>
         </div>

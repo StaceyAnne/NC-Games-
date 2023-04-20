@@ -155,3 +155,25 @@ p.author {
  
 }
 
+/* comment card */
+
+.commentList {
+  background-color: rgb(221, 220, 220); 
+  list-style-type: none;
+  margin: 2rem; 
+  padding: 0; 
+}
+
+.commentList p {
+  margin: 0; 
+  padding: 1em; 
+}
+
+
+li.commentListItem {
+  border-bottom: solid black; 
+  margin: 0; 
+  padding: 0;
+}
+
+
