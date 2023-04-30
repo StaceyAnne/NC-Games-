@@ -9,34 +9,33 @@ const SingleReview = () => {
   const [singleReview, setSingleReview] = useState("");
   const { review_id } = useParams();
   const [loading, setLoading] = useState(true);
-  const [commentSection, setCommentSection] = useState([])
-  const [commentShow, setCommentShow] = useState(false)
+  const [commentSection, setCommentSection] = useState([]);
+  const [commentShow, setCommentShow] = useState(false);
 
   useEffect(() => {
-    getReviewById(review_id).then((response) => {
-      setSingleReview(response);
-      setLoading(false);
-    }, [commentSection]);
+    getReviewById(review_id).then(
+      (response) => {
+        setSingleReview(response);
+        setLoading(false);
+      },
+      [commentSection]
+    );
   });
-
-
 
   const handleClick = () => {
     if (!commentShow) {
-        setCommentShow(true)
+      setCommentShow(true);
+    } else {
+      setCommentShow(false);
     }
-    else {
-      setCommentShow(false)
-    }
-  }
+  };
 
   if (loading) return <p>Loading...</p>;
 
- 
-  const category = singleReview.category[0].toUpperCase() + singleReview.category.slice(1); 
- 
-  const formattedDate = formatDate(singleReview.created_at); 
-    
+  const category =
+    singleReview.category[0].toUpperCase() + singleReview.category.slice(1);
+
+  const formattedDate = formatDate(singleReview.created_at);
 
   return (
     <div className="singleItem">
@@ -44,15 +43,15 @@ const SingleReview = () => {
         <h2>{singleReview.title}</h2>
         <div className="singleReviewBody">
           <img src={singleReview.review_img_url} alt={singleReview.title}></img>
-          <p className="reviewContent">{singleReview.review_body}</p>
-        
+          <div className="imgReview">
+            <p className="author">
+              Written by: {<Link to="/users">{singleReview.owner}</Link>} on{" "}
+              {formattedDate}
+            </p>
+            <p>Category: {category}</p>
+            <p className="reviewContent">{singleReview.review_body}</p>
+          </div>
         </div>
-        <p className="author">
-          Written by: {<Link to="/users">{singleReview.owner}</Link>} on{" "}
-          {formattedDate}
-        </p>
-        <p>Category: {category}</p>
-
         <div className="reviewInfo">
           <div className="voteContainer">
             <p>Votes: {singleReview.votes}</p>
@@ -64,12 +63,22 @@ const SingleReview = () => {
           </div>
           <div className="commentDiv">
             <p>{singleReview.comment_count} comments</p>
-            <button className="commentLink" onClick={handleClick}>View all comments</button>
-            <div className='allComments'>
-          <CommentCard review={singleReview.review_id} commentSection={commentSection} setCommentSection={setCommentSection} commentShow={commentShow}/>
-                </div>
+            <button className="commentLink" onClick={handleClick}>
+              View all comments
+            </button>
+            <div className="allComments">
+              <CommentCard
+                review={singleReview.review_id}
+                commentSection={commentSection}
+                setCommentSection={setCommentSection}
+                commentShow={commentShow}
+              />
+            </div>
           </div>
         </div>
+        <Link to="/users">
+          <button>Sign in here</button>
+        </Link>
         <Link to="/">
           <button className="backReviews">Back to reviews</button>
         </Link>

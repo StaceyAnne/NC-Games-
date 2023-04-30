@@ -20,6 +20,37 @@ body {
   align-items: center;
 }
 
+.userIcon {
+  height: 5vh;
+  width: 4vw;
+  padding: 0;
+  margin: 0;
+  align-items: column;
+  display: flex;
+  align-items: center;
+}
+
+.signInButton {
+  height: 5vh; 
+  width: 5vw; 
+  background-color: rgb(81, 121, 177);
+  color: white; 
+  font-weight: bold; 
+  border-radius: 12%; 
+  border: white solid; 
+  
+
+}
+
+img.signInImage {
+  height: 5vh;
+  min-width: 4vw;
+  margin: 1em;
+  border-radius: 8%; 
+  
+
+}
+
 .sortCategory,
 .sort {
   margin: 2%;
@@ -31,14 +62,6 @@ h1 {
   padding: 3%;
   color: white;
   border-bottom: none;
-}
-
-.header img {
-  border: solid white;
-  border-radius: 100%;
-  height: 5vh;
-  width: auto;
-  margin: 50%;
 }
 
 a {
@@ -53,18 +76,21 @@ a {
   flex-direction: row;
   justify-content: center;
   list-style-type: none;
-  margin: 4%;
+  margin: 1%;
 }
 
 .reviewList li {
-  border: solid rgb(81, 121, 177);
+  border: solid .2em rgb(81, 121, 177);
   max-width: 400px;
-  margin: 3%;
+  margin: 2%;
+  border-radius: 3%;
+
 }
 
 .reviewCard img {
   width: 70%;
   height: auto;
+  border-radius: 3%;
 }
 
 /* single review page */
@@ -96,7 +122,7 @@ a {
   background-color: rgb(114, 144, 187);
   color: white;
   margin: 0;
-  padding: 4%;
+  padding: 2%;
 }
 
 .singleReview p {
@@ -114,8 +140,8 @@ p.author {
 }
 
 .voteBox {
-  width: 10%;  
-  margin: 2%; 
+  width: 10%;
+  margin: 2%;
 }
 
 /*  view on a larger screen */
@@ -126,7 +152,7 @@ p.author {
     min-height: 40vh;
     overflow: hidden;
     justify-content: center;
-    align-items:center;
+    align-items: center;
   }
   .singleReview img {
     width: 40%;
@@ -140,7 +166,6 @@ p.author {
     padding: 4%;
     margin: 2%;
     text-align: left;
-   
   }
 
   p.author {
@@ -152,68 +177,83 @@ p.author {
     flex-direction: column;
   }
 
- 
+  .imgReview {
+    margin: 2%; 
+  }
+
 }
 
 /* comment card */
 
 .commentBox {
-  border: solid grey; 
-  margin: 1em; 
-  padding: 0.5em; 
+  border: solid grey;
+  margin: 1em;
+  padding: 0.5em;
 }
 
 .commentList {
-  background-color: rgb(221, 220, 220); 
+  background-color: rgb(221, 220, 220);
   list-style-type: none;
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
 }
 
 .commentList p {
-  margin: 0; 
-  padding: 1em; 
+  margin: 0;
+  padding: 1em;
 }
 
-
 li.commentListItem {
-  border-bottom: solid black; 
-  border-top: solid grey; 
-  margin: 1em 0; 
+  border-bottom: solid black;
+  border-top: solid grey;
+  margin: 1em 0;
   padding: 0;
 }
 
 textarea {
-  width: 50%; 
+  width: 50%;
+}
+
+.errorMessage {
+  color: red;
+  font-weight: bold;
 }
 
 /* user */
 
 .userCard {
   list-style-type: none;
-  display:flex; 
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
-  
-  
+  justify-content: center;
 }
 
 .userCard li {
-  width: 25%; 
-  margin: 2%; 
-  display: flex; 
-  flex-direction:row; 
-  padding: 1em; 
-  border: solid grey; 
+ 
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: solid grey;
+  border-radius: 5%; 
 }
 
 .userCard li img {
-  max-width: 20%; 
+  max-width: 8vw;
+  max-height: 8vw;
+  margin: auto;
 }
 
 .userCard li button {
-  max-width: 60%; 
-  margin: 1em; 
+  width: 15vw;
+  margin: .5em;
 }
 
-
+.signedInAs {
+  font-weight: bold;
+  background-color: rgb(81, 121, 177);
+  color: white;
+  height: 4vh;
+  border: solid white;
+  margin-top: 2%;
+}

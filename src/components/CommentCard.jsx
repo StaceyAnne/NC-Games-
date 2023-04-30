@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { getCommentsByReviewId } from "../api";
-import { Axios } from "axios";
-import SingleReview from "../components/SingleReview";
+import { getCommentsByReviewId, postCommentByReviewId } from "../api";
 import { formatDate } from "../utils";
-
+import { useContext } from "react";
+import { SignInContext } from "../contexts/SignIn";
 const CommentCard = ({
   review,
   commentSection,
@@ -13,40 +12,55 @@ const CommentCard = ({
   const [loading, setLoading] = useState(true);
   const [commentValue, setCommentValue] = useState("");
   const [newComment, setNewComment] = useState([]);
-  // const [postingComment, setPostingComment] = useState(false)
+  const { user, setUser } = useContext(SignInContext);
+  const [error, setError] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     getCommentsByReviewId(review).then(({ comments }) => {
       setCommentSection(comments);
       setLoading(false);
     });
-  }, []); /*[commentShow]*/
+  }, []);
+
+  // handles new posted comment 
 
   function handleSubmit(event) {
     event.preventDefault();
-    //setPostingComment(true)
-    setCommentSection()
-    console.log(event.target);
+    if (!user) {
+      return setError(`You must be signed in to post a comment!`);
+    }
+
+    const userName = user.name;
+    const postBody = { username: userName, body: commentValue };
+    setMessage("Comment posting....")
+    postCommentByReviewId(review, postBody).then((response) => {
+        setMessage("Your comment has been successfully posted")
+    }).catch(() => {
+      setMessage("Error: Your comment was not succesfully posted. Please try again")
+    });
+
   }
+
 
   function handleText(event) {
     event.preventDefault();
-    console.log(event.target.value);
     setCommentValue(event.target.value);
   }
 
   if (loading) return <p>Loading....</p>;
-  //if (postingComment) return <p>posting comment.....</p>
 
   if (commentShow) {
-    if (commentSection.length === 0) return <p>No comments to show</p>;
     return (
       <section className="commentBox">
         <ul className="commentList">
           <h4>Comments: </h4>
+          {commentSection.length <= 0 && (
+            <p className="no comments">No comments to show</p>
+          )}
           {commentSection.map((comment) => {
             const formattedDate = formatDate(comment.comment_id);
-
             return (
               <li key={comment.comment_id} className="commentListItem">
                 <p>
@@ -66,8 +80,10 @@ const CommentCard = ({
             id="comment"
             type="text"
             onChange={handleText}
+            placeholder={message}
           ></textarea>
           <button>post comment</button>
+          <p className="errorMessage">{error}</p>
         </form>
       </section>
     );

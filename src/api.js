@@ -31,9 +31,14 @@ export const getCommentsByReviewId = (review) => {
   })
 }
 
-export const postCommentByReviewId = (review_id) => {
+export const postCommentByReviewId = (review_id, body) => {
+console.log(JSON.stringify(body))
+ return gamesApi.post(`/reviews/${review_id}/comments`, body).then((response) => 
+ {
+  console.log(response)
+   return response; 
+ })
 
- // return gamesApi.post(`/reviews/${review_id}/comments`, input)
 }
 
 export const getUsers = () => {
@@ -42,3 +47,4 @@ export const getUsers = () => {
     
   })
 }
+
