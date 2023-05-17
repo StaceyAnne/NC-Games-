@@ -34,3 +34,23 @@ export const patchVoteByReviewId = (review, vote) => {
     return votes; 
   })
 }
+
+
+export const postCommentByReviewId = (review_id, body) => {
+console.log(JSON.stringify(body))
+ return gamesApi.post(`/reviews/${review_id}/comments`, body).then((response) => 
+ {
+  console.log(response)
+   return response; 
+ })
+
+}
+
+export const getUsers = () => {
+  return gamesApi.get('/users').then(( { data: {rows}}) => {
+    return rows; 
+    
+  })
+}
+
+
