@@ -60,7 +60,7 @@ const Users = () => {
           return (
             <li key={index}>
               <img src={user.avatar_url} alt={user.name}></img>
-              <h3>{user.username}</h3>
+              <h3>Username: {user.username}</h3>
               <p>Name: {user.name}</p>
               <form name="userForm" onSubmit={signIn}>
                 <input type="hidden" name="name" value={user.username}></input>
@@ -69,8 +69,9 @@ const Users = () => {
                   name="avatar"
                   value={user.avatar_url}
                 ></input>
+                <Link to=""
                 <button type="submit" id={user.name} name="button">
-                  Sign In
+                  Sign In as {user.username}
                 </button>
               </form>
             </li>
