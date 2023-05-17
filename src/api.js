@@ -7,29 +7,34 @@ const gamesApi = axios.create({
 export const getReviews = (category) => {
   if (category) {
     return gamesApi.get(`/reviews/sort_by=${category}`).then(({ data }) => {
-        return data; 
-     
+      return data;
     });
   } else {
-    return gamesApi.get('/reviews').then(({ data }) => {
-        return data; 
-       
+    return gamesApi.get("/reviews").then(({ data }) => {
+      return data;
     });
   }
 };
 
 export const getReviewById = (review_id) => {
-  return gamesApi.get(`/reviews/${review_id}`).then(({ data: {review} }) => {
-      return review; 
-
-  })
-}
+  return gamesApi.get(`/reviews/${review_id}`).then(({ data: { review } }) => {
+    return review;
+  });
+};
 
 export const getCommentsByReviewId = (review) => {
   return gamesApi.get(`/reviews/${review}/comments`).then(({ data }) => {
-    return data; 
+    return data;
+  });
+};
+
+export const patchVoteByReviewId = (review, vote) => {
+  const input = { inc_votes: vote}
+  return gamesApi.patch(`/reviews/${review}`, input).then(({data: {review: { votes }}}) => {
+    return votes; 
   })
 }
+
 
 export const postCommentByReviewId = (review_id, body) => {
 console.log(JSON.stringify(body))
@@ -47,4 +52,5 @@ export const getUsers = () => {
     
   })
 }
+
 

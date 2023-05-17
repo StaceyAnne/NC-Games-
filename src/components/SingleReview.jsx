@@ -4,6 +4,7 @@ import CommentCard from "./CommentCard";
 import { getReviewById } from "../api";
 import { Link } from "react-router-dom";
 import { formatDate } from "../utils";
+import Votes from "./Votes";
 
 const SingleReview = () => {
   const [singleReview, setSingleReview] = useState("");
@@ -53,14 +54,7 @@ const SingleReview = () => {
           </div>
         </div>
         <div className="reviewInfo">
-          <div className="voteContainer">
-            <p>Votes: {singleReview.votes}</p>
-            <form>
-              <label htmlFor="vote">Add vote</label>
-              <input type="number" name="vote" className="voteBox"></input>
-              <button>Submit vote</button>
-            </form>
-          </div>
+          <Votes review={singleReview.review_id} votes={singleReview.votes}/>
           <div className="commentDiv">
             <p>{singleReview.comment_count} comments</p>
             <button className="commentLink" onClick={handleClick}>
