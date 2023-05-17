@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getUsers } from "../api";
 import { useContext } from "react";
 import { SignInContext } from "../contexts/SignIn";
+import { Link } from 'react-router-dom'; 
+import UserCard from "./UserCard";
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
@@ -57,25 +59,7 @@ const Users = () => {
       <p>Current users:</p>
       <ul className="userCard">
         {allUsers.map((user, index) => {
-          return (
-            <li key={index}>
-              <img src={user.avatar_url} alt={user.name}></img>
-              <h3>Username: {user.username}</h3>
-              <p>Name: {user.name}</p>
-              <form name="userForm" onSubmit={signIn}>
-                <input type="hidden" name="name" value={user.username}></input>
-                <input
-                  type="hidden"
-                  name="avatar"
-                  value={user.avatar_url}
-                ></input>
-                <Link to=""
-                <button type="submit" id={user.name} name="button">
-                  Sign In as {user.username}
-                </button>
-              </form>
-            </li>
-          );
+        return <UserCard username={user.name} name={user.name} avatar={user.avatar} index={index} signIn={signIn}/>
         })}
       </ul>
     </div>

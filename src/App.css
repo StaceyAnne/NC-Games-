@@ -152,9 +152,7 @@ p.author {
     min-height: 40vh;
     overflow: hidden;
     justify-content: center;
-
     align-items: center;
-=======
 
   }
   .singleReview img {
@@ -260,7 +258,7 @@ textarea {
   height: 4vh;
   border: solid white;
   margin-top: 2%;
-=======
+}
 /* votes */
 
 
