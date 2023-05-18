@@ -39,7 +39,7 @@ const Header = () => {
         <Link />
       </div>
       <Link to="/">
-        <h1>LET THE GAMES BEGIN!</h1>
+        <h1>NC Games</h1>
       </Link>
       <div className="menu"></div>
     </div>
