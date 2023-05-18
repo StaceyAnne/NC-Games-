@@ -32,10 +32,11 @@ const Header = () => {
   return (
     <div className="header">
        
-     
+     <Link to="/reviews">
       <div className="menu">
         <p>Reviews</p>
       </div>
+      </Link>
       <Link to="/">
         <h1>NC Games</h1>
       </Link>

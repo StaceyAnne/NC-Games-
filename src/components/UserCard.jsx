@@ -1,5 +1,4 @@
 const UserCard = ({ username, name, avatar, index, signIn, user  }) => {
-if (user) console.log(user.name, name)
 
   return (
     <li key={index} className={ user && user.name === username ?  "selected": "notSelected"}>

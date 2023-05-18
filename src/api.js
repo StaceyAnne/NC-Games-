@@ -54,8 +54,8 @@ export const getUsers = () => {
 }
 
 export const getCategories = () =>{
-  return gamesApi.get('/categories').then(( { data: {rows }}) => {
-    return rows; 
+  return gamesApi.get('/categories').then(({ data: { categories} }) => {
+    return categories;
   })
 }
 

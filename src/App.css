@@ -9,7 +9,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* home  */
+/* header  */
 
 .header {
   background-color: rgb(81, 121, 177);
@@ -73,6 +73,13 @@ h1 {
 a {
   text-decoration: none;
 }
+
+/* landing page */
+
+.header {
+  display: grid; 
+}
+
 
 /* all reviews styling */
 

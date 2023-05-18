@@ -13,13 +13,15 @@ useEffect(() => {
   })
 }, [])
 
- console.log(categories)
+console.log(categories)
  return (
 
   <div className="landing">
    <div>
     <ul>
-      {}
+      {categories.map((category, index) => {
+        return <li key={index}>{category.slug}</li>
+      })}
     </ul>
    </div>
    <Link to="/reviews">
