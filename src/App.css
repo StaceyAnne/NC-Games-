@@ -21,8 +21,8 @@ body {
 }
 
 .userIcon {
-  height: 5vh;
-  width: 4vw;
+  max-height: 5vh;
+  max-width: 4vw;
   padding: 0;
   margin: 0;
   align-items: column;
@@ -32,12 +32,11 @@ body {
 
 .signInButton {
   height: 5vh; 
-  width: 5vw; 
-  background-color: rgb(81, 121, 177);
-  color: white; 
+  min-width: 7vw; 
+  color: black; 
   font-weight: bold; 
-  border-radius: 12%; 
-  border: white solid; 
+  border-radius: 10vw; 
+  border: none; 
   
 
 }
@@ -238,13 +237,13 @@ textarea {
   padding: 1em;
   border: solid grey;
   border-radius: 5%; 
-  height: 30vh;
+  height: 40vh;
   width: 25vw; 
 }
 
 .userCard li img {
-  max-width: 8vw;
-  max-height: 8vw;
+  width: 8vw;
+  height: 8vw;
   margin: auto;
 }
 
@@ -260,6 +259,21 @@ textarea {
   height: 4vh;
   border: solid white;
   margin-top: 2%;
+}
+
+.selected {
+  background-color: rgb(176, 225, 176);
+}
+
+.notSelected {
+  border: bold grey 6px; 
+}
+
+@media only screen and (max-width: 600px) {
+    .userCard li {
+      width: 80%; 
+     
+    }
 }
 /* votes */
 

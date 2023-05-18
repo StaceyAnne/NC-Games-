@@ -2,12 +2,12 @@ const UserCard = ({ username, name, avatar, index, signIn, user  }) => {
 if (user) console.log(user.name, name)
 
   return (
-    <li key={index}>
+    <li key={index} className={ user && user.name === username ?  "selected": "notSelected"}>
       <img src={avatar} alt={name}></img>
       <h3>Username: {username}</h3>
       <p>Name: {name}</p>
       <div>
-      {(user && user.name === username) && <p>You are logged in as {user.name}</p>}
+      {(user && user.name === username) && <h5>You are logged in as {user.name}</h5>}
    </div>
       <form name="userForm" onSubmit={signIn}>
         <input type="hidden" name="name" value={username}></input>

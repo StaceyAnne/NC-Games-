@@ -29,7 +29,7 @@ const Users = () => {
     const avatar = event.target.avatar.value;
     setUser({ name: name, avatar: avatar });
     event.target.button.innerText = "Sign Out";
-    setClassName("loggedIn")
+  
   };
 
   // Displays all users
