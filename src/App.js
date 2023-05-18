@@ -1,5 +1,5 @@
 import Header from './components/Header'
-import Nav from './components/Nav'
+import Nav from './components/Landing'
 import Reviews from './components/Reviews'
 import './App.css';
 import {Routes, Route } from 'react-router-dom'
