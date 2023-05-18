@@ -14,6 +14,11 @@ const Header = () => {
       setSignedInLogo(user.avatar);
       setLoginButton("Sign Out");
     }
+    else {
+      setSignedInLogo(image)
+      setLoginButton("Sign In")
+    }
+
   }, [user]);
 
   const HandleSignIn = () => {

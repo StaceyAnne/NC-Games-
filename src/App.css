@@ -238,6 +238,8 @@ textarea {
   padding: 1em;
   border: solid grey;
   border-radius: 5%; 
+  height: 30vh;
+  width: 25vw; 
 }
 
 .userCard li img {

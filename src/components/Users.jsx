@@ -9,24 +9,27 @@ const Users = () => {
   const [loading, setLoading] = useState(true);
   const [allUsers, setAllUsers] = useState([]);
   const { user, setUser } = useContext(SignInContext);
-  const [loginButton, setLoginButton] = useState("Sign In");
+  const [loginButton, setLoginButton] = useState
+  ("Sign In");
+  const [className, setClassName] = useState()
 
   const signIn = (event) => {
     event.preventDefault();
     if (user) {
       if (user.name === event.target.name.value) {
         setUser();
+         event.target.button.innerText = `Sign In`;
+        return;
       } else {
         return;
       }
     }
 
-    console.log(user, "<<<<<");
-
     const name = event.target.name.value;
     const avatar = event.target.avatar.value;
     setUser({ name: name, avatar: avatar });
     event.target.button.innerText = "Sign Out";
+    setClassName("loggedIn")
   };
 
   // Displays all users
@@ -42,19 +45,18 @@ const Users = () => {
 
   return (
     <div className="users">
-      {user && (
-        <div className="signedInAs">You are now signed in as: {user.name}</div>
-      )}
-      <p>Current users:</p>
+     
+      
       <ul className="userCard">
-        {allUsers.map((user, index) => {
+        {allUsers.map((userData, index) => {
+          
           return (
             <UserCard
-              username={user.username}
-              name={user.name}
-              avatar={user.avatar_url}
+              username={userData.username}
+              name={userData.name}
+              avatar={userData.avatar_url}
               index={index}
-              signIn={signIn}
+              signIn={signIn} className={className} user={user}
             />
           );
         })}
