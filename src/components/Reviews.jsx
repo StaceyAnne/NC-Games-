@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getReviews } from "../api";
 import ReviewCard from "../components/ReviewCard";
 
-const Reviews = ({ category }) => {
+const Reviews = ({ category, order }) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
