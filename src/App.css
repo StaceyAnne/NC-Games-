@@ -74,7 +74,7 @@ a {
 
 .landing {
   display: grid;
-  grid-template-columns: [first] 20% [line2] auto [line3] 20%;
+  grid-template-columns: [first] 25% [line2] auto [line3] 25%;
   height: 100vh;
 }
 
@@ -85,15 +85,22 @@ a {
   list-style-type: none;
   padding: 40% 20% 60% 20%;
   text-align: left;
+  height: 100vh; 
   top: 0;
   align-self: start;
   background-color: rgb(220, 216, 216);
+  
 }
 
 .sideBar li {
   font-weight: bold;
   padding: 10% 0;
   color: grey;
+}
+
+.catImage {
+  width: 2vw; 
+  padding: 0 1vw ; 
 }
 
 .categoryItem {
@@ -143,6 +150,35 @@ a {
 .landingContent li {
   border-bottom: solid rgb(202, 200, 200) 0.5px; 
   padding: 2vh 0; 
+}
+
+@media only screen and (max-width: 900px) {
+  .landing {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sideBar {
+      display: flex;
+      flex-direction: row; 
+      position: sticky;
+      flex-wrap: wrap;
+      padding: 2% 0 ; 
+      height: auto; 
+        margin: 0;
+        list-style-type: none;
+        background-color: rgb(220, 216, 216);
+        
+    }
+        
+        .categoryItem {
+          display: none;  
+          font-size: 0.7em; 
+          margin: 0 2vw; 
+        }
+
+    
+  
 }
 
 /* all reviews styling */
