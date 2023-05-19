@@ -2,15 +2,12 @@ import { useState, useEffect } from "react";
 import { getUsers } from "../api";
 import { useContext } from "react";
 import { SignInContext } from "../contexts/SignIn";
-import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
   const [allUsers, setAllUsers] = useState([]);
   const { user, setUser } = useContext(SignInContext);
-  const [loginButton, setLoginButton] = useState
-  ("Sign In");
   const [className, setClassName] = useState()
 
   const signIn = (event) => {

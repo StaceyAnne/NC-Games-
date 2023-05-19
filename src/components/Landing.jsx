@@ -1,40 +1,66 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getCategories } from "../api";
-import Reviews from "./Reviews";
+import { getCategories, getReviews } from "../api";
+import ReviewCard from "./ReviewCard";
+import  image  from './category.png'
 
 const Nav = () => {
- 
-const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
+  const [reviews, setReviews] = useState([]); 
+  const [loading, setLoading] = useState(true)
 
-useEffect(() => {
-  getCategories().then((categories) =>{
-    setCategories(categories)
-  })
-}, [])
 
-useEffect(() => {
-  
-}, [])
+  // need to regactor into promise all 
+  useEffect(() => {
+    getCategories().then((categories) => {
+      setCategories(categories);
+    });
 
-console.log(categories)
- return (
-
-  <div className="landing">
-   <div>
-    <ul>
-      {categories.map((category, index) => {
-        return <Link to="/reviews"><li key={index}>{category.slug}</li></Link>
-      })}
-    </ul>
-   </div>
-   <Link to="/reviews">
+    getReviews().then(({ reviews }) => {
     
-  </Link>
-  <div className="landingContent"><Reviews/>
-  </div>
-  </div>
- )
-}
+      const topReviews = reviews.filter((review, index) => {
+        return index <= 5;
+      });
+      setReviews(topReviews);
+      
+  });
 
-export default Nav; 
+  setLoading(false)
+
+}, [])
+
+if (loading) return <p>Loading....</p>
+
+  return (
+    <div className="landing">
+      <div> 
+        <ul className="sideBar">
+          {categories.map((category, index) => {
+            return (
+              <Link to="/reviews">
+                <li key={index}><div className="categoryItem"><img src={image}></img>{category.slug}</div></li>
+              </Link>
+            );
+          })}
+        </ul>
+      </div>
+      <div className="landingContent">
+          <Link to="/reviews">
+        <button className="viewReviewsButton">View all reviews</button>
+     </Link>
+          <h3>Most recent reviews</h3>
+        <ul className="landingContentList">
+          {reviews.map((review) => {
+            return (
+              <li>
+                <ReviewCard review={review} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default Nav;

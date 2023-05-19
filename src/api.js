@@ -4,12 +4,17 @@ const gamesApi = axios.create({
   baseURL: "https://nc-games-1onq.onrender.com/api",
 });
 
-export const getReviews = (category) => {
+export const getReviews = (category, order) => {
+
+  const orderBy = order || 'ASC'; 
   if (category) {
-    return gamesApi.get(`/reviews/sort_by=${category}`).then(({ data }) => {
+    return gamesApi.get(`/reviews/sort_by=${category}order=${orderBy}`).then(({ data }) => {
       return data;
-    });
-  } else {
+    }); 
+  }
+  
+
+  else {
     return gamesApi.get("/reviews").then(({ data }) => {
       return data;
     });
@@ -58,5 +63,4 @@ export const getCategories = () =>{
     return categories;
   })
 }
-
 
