@@ -3,6 +3,7 @@ import { getCommentsByReviewId, postCommentByReviewId } from "../api";
 import { formatDate } from "../utils";
 import { useContext } from "react";
 import { SignInContext } from "../contexts/SignIn";
+
 const CommentCard = ({
   review,
   commentSection,
@@ -52,23 +53,23 @@ const CommentCard = ({
 
   if (loading) return <p>Loading....</p>;
 
-  if (commentShow) {
-    return (
-      <section className="commentBox">
-        <ul className="commentList">
-          <h4>Comments: </h4>
-          {commentSection.length <= 0 && (
-            <p className="no comments">No comments to show</p>
-          )}
-          {commentSection.map((comment) => {
-            const formattedDate = formatDate(comment.comment_id);
-            return (
-              <li key={comment.comment_id} className="commentListItem">
-                <p>
-                  by {comment.author} at {formattedDate}
-                </p>
+  // if (commentShow) {
+  //   return (
+  //     <section className="commentBox">
+  //       <ul className="commentList">
+  //         <h4>Comments: </h4>
+  //         {commentSection.length <= 0 && (
+  //           <p className="no comments">No comments to show</p>
+  //         )}
+  //         {commentSection.map((comment) => {
+  //           const formattedDate = formatDate(comment.comment_id);
+  //           return (
+  //             <li key={comment.comment_id} className="commentListItem">
+  //               <p>
+  //                 by {comment.author} at {formattedDate}
+  //               </p>
 
-const CommentCard = ({review, commentSection, setCommentSection, commentShow}) => {
+{/* const CommentCard = ({review, commentSection, setCommentSection, commentShow}) => {
     const [loading, setLoading] = useState(true)    
 
     useEffect(() => {
@@ -76,9 +77,9 @@ const CommentCard = ({review, commentSection, setCommentSection, commentShow}) =
            setCommentSection(comments)
            setLoading(false)
        }) 
-    }, [commentShow])
+    }, [commentShow]) */}
 
-    if (loading) return <p>Loading....</p>
+    {/* if (loading) return <p>Loading....</p> */}
 
     if (commentShow) {
             if (commentSection.length === 0) return <p>No comments to show</p>
@@ -95,8 +96,8 @@ const CommentCard = ({review, commentSection, setCommentSection, commentShow}) =
                 <p>"{comment.body}"</p>
                 <p>Votes: {comment.votes}</p>
               </li>
-            );
-          })}
+        }
+            )}
         </ul>
         <form onSubmit={handleSubmit}>
           <label htmlFor="comment">Add a comment: </label>
@@ -112,8 +113,8 @@ const CommentCard = ({review, commentSection, setCommentSection, commentShow}) =
           <p className="errorMessage">{error}</p>
         </form>
       </section>
-    );
-  }
+    )
+        }
 };
 
 export default CommentCard;

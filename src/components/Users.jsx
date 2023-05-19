@@ -2,40 +2,34 @@ import { useState, useEffect } from "react";
 import { getUsers } from "../api";
 import { useContext } from "react";
 import { SignInContext } from "../contexts/SignIn";
+import { Link } from "react-router-dom";
+import UserCard from "./UserCard";
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
   const [allUsers, setAllUsers] = useState([]);
   const { user, setUser } = useContext(SignInContext);
-  const [loginButton, setLoginButton] = useState("Sign In");
+  const [loginButton, setLoginButton] = useState
+  ("Sign In");
+  const [className, setClassName] = useState()
 
   const signIn = (event) => {
     event.preventDefault();
-    // if (user) {
-    //   setUser();
-    // }
+    if (user) {
+      if (user.name === event.target.name.value) {
+        setUser();
+         event.target.button.innerText = `Sign In`;
+        return;
+      } else {
+        return;
+      }
+    }
 
-    //map through all the buttons in the list
-    //disable that any are not the one that we are
-    // signed in as 
-    const allButtons = allUsers.map((user) => {
-      return user.name; 
-    })
-
-    allButtons.map((user) => {
-      button.user.disabled = "true"
-    })
-
-    console.log(allButtons)
-   
     const name = event.target.name.value;
     const avatar = event.target.avatar.value;
     setUser({ name: name, avatar: avatar });
-    const button = event.target.button;
-    button.className = "selectedClass";
     event.target.button.innerText = "Sign Out";
-    console.log(button.id.happyamy2016)
-    
+  
   };
 
   // Displays all users
@@ -51,30 +45,19 @@ const Users = () => {
 
   return (
     <div className="users">
-      {user && (
-        <div className="signedInAs">You are now signed in as: {user.name}</div>
-      )}
-      <p>Current users:</p>
+     
+      
       <ul className="userCard">
-        {allUsers.map((user, index) => {
+        {allUsers.map((userData, index) => {
+          
           return (
-            <li key={index}>
-              <img src={user.avatar_url} alt={user.name}></img>
-              <h3>Username: {user.username}</h3>
-              <p>Name: {user.name}</p>
-              <form name="userForm" onSubmit={signIn}>
-                <input type="hidden" name="name" value={user.username}></input>
-                <input
-                  type="hidden"
-                  name="avatar"
-                  value={user.avatar_url}
-                ></input>
-                <Link to=""
-                <button type="submit" id={user.name} name="button">
-                  Sign In as {user.username}
-                </button>
-              </form>
-            </li>
+            <UserCard
+              username={userData.username}
+              name={userData.name}
+              avatar={userData.avatar_url}
+              index={index}
+              signIn={signIn} className={className} user={user}
+            />
           );
         })}
       </ul>

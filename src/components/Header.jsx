@@ -14,6 +14,11 @@ const Header = () => {
       setSignedInLogo(user.avatar);
       setLoginButton("Sign Out");
     }
+    else {
+      setSignedInLogo(image)
+      setLoginButton("Sign In")
+    }
+
   }, [user]);
 
   const HandleSignIn = () => {
@@ -27,8 +32,17 @@ const Header = () => {
   return (
     <div className="header">
        
-      <div className="userIcon">
-      <Link to="/users"><img src={signedInLogo} alt="user icon" className="signInImage"></img></Link> 
+     <Link to="/reviews">
+      <div className="menu">
+        <p>Reviews</p>
+      </div>
+      </Link>
+      <Link to="/">
+        <h1>NC Games</h1>
+      </Link>
+       <div className="userIcon">
+      <Link to="/users"><img src={signedInLogo} alt="user icon" className="signInImage"></img>
+      </Link> 
         {!user ? (
           <Link to="/users">
             <button className="signInButton">{loginButton}</button>
@@ -36,12 +50,9 @@ const Header = () => {
         ) : (
           <button className="signInButton" onClick={HandleSignIn}>{loginButton}</button>
         )}
-        <Link />
+        
       </div>
-      <Link to="/">
-        <h1>LET THE GAMES BEGIN!</h1>
-      </Link>
-      <div className="menu"></div>
+      
     </div>
   );
 };

@@ -37,10 +37,10 @@ export const patchVoteByReviewId = (review, vote) => {
 
 
 export const postCommentByReviewId = (review_id, body) => {
-console.log(JSON.stringify(body))
+
  return gamesApi.post(`/reviews/${review_id}/comments`, body).then((response) => 
  {
-  console.log(response)
+  
    return response; 
  })
 
@@ -50,6 +50,12 @@ export const getUsers = () => {
   return gamesApi.get('/users').then(( { data: {rows}}) => {
     return rows; 
     
+  })
+}
+
+export const getCategories = () =>{
+  return gamesApi.get('/categories').then(({ data: { categories} }) => {
+    return categories;
   })
 }
 

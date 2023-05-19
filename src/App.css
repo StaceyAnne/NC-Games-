@@ -9,20 +9,27 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* home  */
+/* header  */
 
 .header {
   background-color: rgb(81, 121, 177);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  width: 100%; 
+}
+
+div.menu {
+ 
+ color: white; 
+ font-weight: bold;
 }
 
 .userIcon {
-  height: 5vh;
-  width: 4vw;
+  max-height: 5vh;
+  max-width: 4vw;
   padding: 0;
   margin: 0;
   align-items: column;
@@ -32,13 +39,12 @@ body {
 
 .signInButton {
   height: 5vh; 
-  width: 5vw; 
-  background-color: rgb(81, 121, 177);
-  color: white; 
+  min-width: 7vw; 
+  color: black; 
   font-weight: bold; 
-  border-radius: 12%; 
-  border: white solid; 
-  
+  border-radius: 10vw; 
+  border: none; 
+  padding: 1%; 
 
 }
 
@@ -66,6 +72,33 @@ h1 {
 
 a {
   text-decoration: none;
+}
+
+/* landing page */
+
+.landing {
+  display: grid; 
+  grid-template-columns: [first] 20% [line2] auto; 
+}
+
+.landing ul {
+
+  height:100vh; 
+  position: sticky; 
+  margin: 0; 
+  list-style-type: none;
+  padding: 40% 20%; 
+  text-align: left;
+}
+
+.landing ul li {
+  font-weight: bold;
+  padding: 10% 0; 
+}
+
+.landingContent {
+  grid-column-start: 2;
+  grid-row-start: 1; 
 }
 
 /* all reviews styling */
@@ -152,9 +185,7 @@ p.author {
     min-height: 40vh;
     overflow: hidden;
     justify-content: center;
-
     align-items: center;
-=======
 
   }
   .singleReview img {
@@ -240,11 +271,13 @@ textarea {
   padding: 1em;
   border: solid grey;
   border-radius: 5%; 
+  height: 40vh;
+  width: 25vw; 
 }
 
 .userCard li img {
-  max-width: 8vw;
-  max-height: 8vw;
+  width: 8vw;
+  height: 8vw;
   margin: auto;
 }
 
@@ -260,7 +293,22 @@ textarea {
   height: 4vh;
   border: solid white;
   margin-top: 2%;
-=======
+}
+
+.selected {
+  background-color: rgb(176, 225, 176);
+}
+
+.notSelected {
+  border: bold grey 6px; 
+}
+
+@media only screen and (max-width: 900px) {
+    .userCard li {
+      width: 80%; 
+     
+    }
+}
 /* votes */
 
 
