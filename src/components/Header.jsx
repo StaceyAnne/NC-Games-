@@ -9,6 +9,16 @@ const Header = () => {
   const { user, setUser } = useContext(SignInContext);
   const [signedInLogo, setSignedInLogo] = useState(image);
   const [loginButton, setLoginButton] = useState("Sign In");
+  const [hamburger, setHamburger] = useState(false)
+
+  const handleClick = () => {
+       if (hamburger) {
+        setHamburger(false)
+       } 
+       else {
+        setHamburger(true)
+       }
+  }
 
   useEffect(() => {
     if (user) {
@@ -31,11 +41,12 @@ const Header = () => {
 }
 
   return (
+    <div className="outerDiv">
     <div className="header">
        
      <Link to="/reviews">
       <div className="menu">
-        <div><img src={image2} className="hamburger"></img></div>
+        <div className="hamburgerDiv" onClick={handleClick}><img src={image2} className="hamburger"></img></div>
         <Link to="/reviews">
           <div className="reviewNav">Reviews</div></Link>
       </div>
@@ -56,6 +67,11 @@ const Header = () => {
         
       </div>
       
+    </div>
+    {hamburger && <div classNmae="mobileNav">
+
+      
+    </div> }
     </div>
   );
 };
