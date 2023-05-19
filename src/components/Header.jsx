@@ -1,4 +1,5 @@
 import image from "./user.png";
+import image2 from './hamburger.png'
 import { Link, Navigate } from "react-router-dom";
 import { SignInContext } from "../contexts/SignIn";
 import { useContext } from "react";
@@ -34,7 +35,9 @@ const Header = () => {
        
      <Link to="/reviews">
       <div className="menu">
-        <p>Reviews</p>
+        <div><img src={image2} className="hamburger"></img></div>
+        <Link to="/reviews">
+          <div className="reviewNav">Reviews</div></Link>
       </div>
       </Link>
       <Link to="/">
