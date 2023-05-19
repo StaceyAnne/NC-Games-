@@ -76,10 +76,30 @@ a {
 
 /* landing page */
 
-.header {
+.landing {
   display: grid; 
+  grid-template-columns: [first] 20% [line2] auto; 
 }
 
+.landing ul {
+
+  height:100vh; 
+  position: sticky; 
+  margin: 0; 
+  list-style-type: none;
+  padding: 40% 20%; 
+  text-align: left;
+}
+
+.landing ul li {
+  font-weight: bold;
+  padding: 10% 0; 
+}
+
+.landingContent {
+  grid-column-start: 2;
+  grid-row-start: 1; 
+}
 
 /* all reviews styling */
 
@@ -283,7 +303,7 @@ textarea {
   border: bold grey 6px; 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     .userCard li {
       width: 80%; 
      

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { getCategories } from "../api";
-
+import Reviews from "./Reviews";
 
 const Nav = () => {
  
@@ -13,6 +13,10 @@ useEffect(() => {
   })
 }, [])
 
+useEffect(() => {
+  
+}, [])
+
 console.log(categories)
  return (
 
@@ -20,14 +24,15 @@ console.log(categories)
    <div>
     <ul>
       {categories.map((category, index) => {
-        return <li key={index}>{category.slug}</li>
+        return <Link to="/reviews"><li key={index}>{category.slug}</li></Link>
       })}
     </ul>
    </div>
    <Link to="/reviews">
-    <p>View all reviews</p>
-    <p>View by category</p>
+    
   </Link>
+  <div className="landingContent"><Reviews/>
+  </div>
   </div>
  )
 }
