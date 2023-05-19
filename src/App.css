@@ -79,11 +79,11 @@ a {
 }
 
 .sideBar {
-  height: 100vh;
+  
   position: sticky;
   margin: 0;
   list-style-type: none;
-  padding: 40% 20%;
+  padding: 40% 20% 60% 20%;
   text-align: left;
   top: 0;
   align-self: start;
@@ -114,7 +114,8 @@ a {
   display: flex;
   flex-direction: column;
   margin-left: 4%; 
-  padding-top: 8%;
+  padding: 8% 0;
+  margin-bottom: 4%;
  
 }
 
