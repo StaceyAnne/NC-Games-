@@ -68,9 +68,12 @@ const Header = () => {
       </div>
       
     </div>
-    {hamburger && <div classNmae="mobileNav">
+    {hamburger && <div className="mobileNav">
+          <ul className="hiddenNav">
+            <Link to="/reviews"><li>Reviews</li></Link>
+            <Link to="/users"><li>Login</li></Link>
+          </ul>
 
-      
     </div> }
     </div>
   );
