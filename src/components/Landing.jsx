@@ -4,17 +4,12 @@ import { getCategories, getReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 import image from "./category.png";
 
-const Nav = () => {
-  const [categories, setCategories] = useState([]);
+const Nav = ({ categories, setCategories }) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // need to refactor into promise all
   useEffect(() => {
-    getCategories().then((categories) => {
-      setCategories(categories);
-    });
-
     getReviews().then(({ reviews }) => {
       const topReviews = reviews.filter((review, index) => {
         return index <= 5;
@@ -33,7 +28,7 @@ const Nav = () => {
         <ul className="sideBar">
           {categories.map((category, index) => {
             return (
-              <Link to="/reviews">
+              <Link to={`/reviews/${category.slug}`}>
                 <li key={index}>
                   <div className="categoryItem">
                     <img src={image} className="catImage"></img>

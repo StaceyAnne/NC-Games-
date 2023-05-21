@@ -6,9 +6,9 @@ const gamesApi = axios.create({
 
 export const getReviews = (category, order) => {
 
-  const orderBy = order || 'ASC'; 
+  const orderBy = order || 'asc'; 
   if (category) {
-    return gamesApi.get(`/reviews/sort_by=${category}order=${orderBy}`).then(({ data }) => {
+    return gamesApi.get(`/reviews/?sort_by=${category}&order=${orderBy}`).then(({ data }) => {
       return data;
     }); 
   }
