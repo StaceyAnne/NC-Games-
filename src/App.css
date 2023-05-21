@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+button {
+  color: black;
+  font-weight: bold;
+  border-radius: 10vw;
+  border: none;
+  padding: 1%;
+}
+
+ul {
+  list-style-type: none;
+}
+
 body {
   margin: 0;
   max-width: 100%;
@@ -10,6 +22,12 @@ body {
 }
 
 /* header  */
+
+.hamburger {
+  width: 50%;
+  height: auto;
+  display: none;
+}
 
 .header {
   background-color: rgb(81, 121, 177);
@@ -68,23 +86,58 @@ h1 {
 
 a {
   text-decoration: none;
+  color: rgb(37, 36, 36);
+}
+
+.hiddenNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.mobileNav {
+  background-color: rgb(220, 216, 216);
+  padding: 1%;
+}
+
+@media only screen and (max-width: 900px) {
+  .signInImage {
+    display: none;
+  }
+
+  .signInButton {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    color: white;
+    padding-top: 2vh;
+    margin-left: 2vw;
+    width: 50%;
+    height: auto;
+  }
+
+  .reviewNav {
+    display: none;
+  }
 }
 
 /* landing page */
 
 .landing {
   display: grid;
-  grid-template-columns: [first] 20% [line2] auto [line3] 20%;
+  grid-template-columns: [first] 25% [line2] auto [line3] 25%;
   height: 100vh;
 }
 
 .sideBar {
-  height: 100vh;
   position: sticky;
   margin: 0;
-  list-style-type: none;
-  padding: 40% 20%;
+  padding: 40% 20% 0% 20%;
   text-align: left;
+  height: 100vh;
   top: 0;
   align-self: start;
   background-color: rgb(220, 216, 216);
@@ -94,6 +147,11 @@ a {
   font-weight: bold;
   padding: 10% 0;
   color: grey;
+}
+
+.catImage {
+  width: 2vw;
+  padding: 0 1vw;
 }
 
 .categoryItem {
@@ -113,35 +171,56 @@ a {
   grid-column-start: 2;
   display: flex;
   flex-direction: column;
-  margin-left: 4%; 
-  padding-top: 8%;
- 
+  margin-left: 4%;
+  padding: 8% 0;
+  margin-bottom: 4%;
 }
 
 .landingContentList {
   padding: 0;
-  border: solid grey;
+  border: solid rgb(177, 173, 173) 2px;
   width: 80%;
-  margin: auto; 
+  margin: auto;
   border-radius: 1vw;
-  list-style-type: none;
- 
 }
 
 .viewReviewsButton {
-    height: 8vh;
-    min-width: 12vw;
-    color: white;
-    font-weight: bold;
-    border: none; 
-    border-radius: 10vw;
-    background-color: rgb(81, 121, 177);
-
+  height: 7vh;
+  min-width: 12vw;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10vw;
+  background-color: rgb(81, 121, 177);
 }
 
 .landingContent li {
-  border-bottom: solid rgb(202, 200, 200) 0.5px; 
-  padding: 2vh 0; 
+  border-bottom: solid rgb(202, 200, 200) 0.5px;
+  padding: 2vh 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .landing {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sideBar {
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    flex-wrap: wrap;
+    padding: 2% 0;
+    height: auto;
+    margin: 0;
+    background-color: rgb(220, 216, 216);
+  }
+
+  .categoryItem {
+    display: none;
+    font-size: 0.7em;
+    margin: 0 2vw;
+  }
 }
 
 /* all reviews styling */
@@ -151,7 +230,6 @@ a {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  list-style-type: none;
   margin: 1%;
 }
 
@@ -166,6 +244,17 @@ a {
   width: 70%;
   height: auto;
   border-radius: 3%;
+}
+
+.reviewCard button {
+  margin-bottom: 2vh;
+  height: 5vh;
+  min-width: 10vw;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10vw;
+  background-color: rgb(81, 121, 177);
 }
 
 /* single review page */
@@ -267,7 +356,6 @@ p.author {
 
 .commentList {
   background-color: rgb(221, 220, 220);
-  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -296,7 +384,6 @@ textarea {
 /* user */
 
 .userCard {
-  list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -311,6 +398,7 @@ textarea {
   border-radius: 5%;
   height: 40vh;
   width: 25vw;
+  overflow: hidden;
 }
 
 .userCard li img {

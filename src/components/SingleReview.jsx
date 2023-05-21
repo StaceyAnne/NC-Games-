@@ -54,7 +54,7 @@ const SingleReview = () => {
           </div>
         </div>
         <div className="reviewInfo">
-          <Votes review={singleReview.review_id} votes={singleReview.votes}/>
+          <Votes review={singleReview.review_id} votes={singleReview.votes} />
           <div className="commentDiv">
             <p>{singleReview.comment_count} comments</p>
             <button className="commentLink" onClick={handleClick}>

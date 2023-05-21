@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { getReviews } from "../api";
 import ReviewCard from "../components/ReviewCard";
+import { useParams } from "react-router-dom";
 
-const Reviews = ({ category, order }) => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { category } = useParams(); 
+  console.log(category)
+
 
   useEffect(() => {
     getReviews(category).then(({ reviews }) => {

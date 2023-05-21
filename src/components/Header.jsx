@@ -1,4 +1,5 @@
 import image from "./user.png";
+import image2 from './hamburger.png'
 import { Link, Navigate } from "react-router-dom";
 import { SignInContext } from "../contexts/SignIn";
 import { useContext } from "react";
@@ -8,6 +9,16 @@ const Header = () => {
   const { user, setUser } = useContext(SignInContext);
   const [signedInLogo, setSignedInLogo] = useState(image);
   const [loginButton, setLoginButton] = useState("Sign In");
+  const [hamburger, setHamburger] = useState(false)
+
+  const handleClick = () => {
+       if (hamburger) {
+        setHamburger(false)
+       } 
+       else {
+        setHamburger(true)
+       }
+  }
 
   useEffect(() => {
     if (user) {
@@ -30,11 +41,14 @@ const Header = () => {
 }
 
   return (
+    <div className="outerDiv">
     <div className="header">
        
      <Link to="/reviews">
       <div className="menu">
-        <p>Reviews</p>
+        <div className="hamburgerDiv" onClick={handleClick}><img src={image2} className="hamburger"></img></div>
+        <Link to="/reviews">
+          <div className="reviewNav">Reviews</div></Link>
       </div>
       </Link>
       <Link to="/">
@@ -53,6 +67,14 @@ const Header = () => {
         
       </div>
       
+    </div>
+    {hamburger && <div className="mobileNav">
+          <ul className="hiddenNav">
+            <Link to="/reviews"><li>Reviews</li></Link>
+            <Link to="/users"><li>Login</li></Link>
+          </ul>
+
+    </div> }
     </div>
   );
 };
