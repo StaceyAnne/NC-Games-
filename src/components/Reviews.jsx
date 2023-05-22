@@ -3,12 +3,10 @@ import { getReviews } from "../api";
 import ReviewCard from "../components/ReviewCard";
 import { useParams } from "react-router-dom";
 
-const Reviews = () => {
+const Reviews = ( { categories }) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const { category } = useParams(); 
-  console.log(category)
-
 
   useEffect(() => {
     getReviews(category).then(({ reviews }) => {
@@ -23,9 +21,21 @@ const Reviews = () => {
 
   return (
     <section>
-      <button className="sortCategory">Sort by cateogory</button>
+      <div className="sortButtons">
+      <div className="sortBy">
+      <button className="sortCategory" >Sort by category</button>
+      <div className="sortCategoryDropDown">
+        {categories.map((category) => {
+          
+        })}
+      </div>
+      </div>
+      <div className="orderBy">
       <button className="sort">Sort by</button>
-      <p>Showing: all reviews</p>
+      <div className="orderByDropDown"></div>
+      </div>
+      </div>
+      <p>Showing: {(category || "all") + " reviews"}</p>
       <ul className="reviewList">
         {reviews.map((review) => {
           return (

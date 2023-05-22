@@ -73,7 +73,9 @@ img.signInImage {
 
 .sortCategory,
 .sort {
-  margin: 2%;
+  margin: 2vw;
+  width: 12vw; 
+  height: 6vh; 
 }
 
 h1 {
@@ -256,6 +258,15 @@ a {
   border-radius: 10vw;
   background-color: rgb(81, 121, 177);
 }
+
+.sortButtons {
+  display:flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 /* single review page */
 .singleItem {

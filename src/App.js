@@ -27,7 +27,7 @@ function App() {
             <Nav categories={categories} setCategories={setCategories} />
           }
         />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/reviews" element={<Reviews categories={categories}/>} />
         <Route path="/review/:review_id" element={<SingleReview />} />
         <Route path="/users" element={<Users />} />
         <Route path="/reviews/:category" element={<Reviews />}></Route>
