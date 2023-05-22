@@ -74,8 +74,8 @@ img.signInImage {
 .sortCategory,
 .sort {
   margin: 2vw;
-  width: 12vw; 
-  height: 6vh; 
+  width: 12vw;
+  height: 6vh;
 }
 
 h1 {
@@ -260,13 +260,62 @@ a {
 }
 
 .sortButtons {
-  display:flex; 
+  display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: first baseline;
+  margin: 0;
 }
 
+.sortBy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.sortBy button {
+  margin-bottom: 0;
+}
+
+.sortCategoryDropDown,
+.orderBy {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sortCategoryDropDown ul,
+.orderByDropDown ul {
+  margin: 1vh;
+  position: fixed;
+  background-color: white;
+  border: solid grey 0.5px;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 1%;
+  height: 25vh;
+  overflow-y: scroll;
+}
+
+.sortCategoryDropDown ul li,
+.orderByDropDown ul li {
+  margin: 0.5vh 0;
+  padding: 0.5vh 0;
+  width: 100%;
+}
+
+.sortCategoryDropDown ul li:hover,
+.orderByDropDown ul li:hover {
+  background-color: rgb(192, 189, 189);
+}
+
+.sort,
+.sortCategory {
+  border-radius: 1vw;
+}
 
 /* single review page */
 .singleItem {
