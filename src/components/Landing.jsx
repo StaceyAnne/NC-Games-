@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getCategories, getReviews } from "../api";
+import { getReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 import image from "./category.png";
 

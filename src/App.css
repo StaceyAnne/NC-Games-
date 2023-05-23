@@ -73,7 +73,9 @@ img.signInImage {
 
 .sortCategory,
 .sort {
-  margin: 2%;
+  margin: 2vw;
+  width: 12vw;
+  height: 6vh;
 }
 
 h1 {
@@ -255,6 +257,82 @@ a {
   border: none;
   border-radius: 10vw;
   background-color: rgb(81, 121, 177);
+}
+
+.sortButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: first baseline;
+  margin: 0;
+}
+
+.sortBy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sortBy button, .orderBy button {
+  margin-bottom: 0;
+} 
+
+.sortCategoryDropDown,
+.orderByDropDown {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sortCategoryDropDown ul
+{
+  margin: 1vh;
+  position: fixed;
+  background-color: white;
+  border: solid grey 0.5px;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 1%;
+  height: 25vh;
+  overflow-y: scroll;
+}
+
+.orderByDropDown ul {
+  margin: 1vh;
+    position: fixed;
+    background-color: white;
+    border: solid grey 0.5px;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0 2%;
+}
+
+.sortCategoryDropDown ul li,
+.orderByDropDown ul li {
+  margin: 0.5vh 0;
+  padding: 0.5vh 0;
+  width: 100%;
+}
+
+.sortCategoryDropDown ul li:hover,
+.orderByDropDown ul li:hover {
+  background-color: rgb(192, 189, 189);
+  cursor: pointer;
+}
+
+.sort,
+.sortCategory {
+  border-radius: 1vw;
+}
+
+
+.orderByDropDown {
+  background-color: green;
 }
 
 /* single review page */
