@@ -39,8 +39,6 @@ const CommentCard = ({
     if (!user) {
       return setError(`You must be signed in to post a comment!`);
     }
-   
-   
     const userName = user.name;
     const postBody = { username: userName, body: commentValue };
     setPlaceholder("Posting comment...")
@@ -50,6 +48,10 @@ const CommentCard = ({
     }).catch(() => {
       setError("Error: Your comment was not succesfully posted. Please try again")
     });
+  }
+
+  function handleDelete() {
+    
   }
 
 
@@ -68,7 +70,6 @@ const CommentCard = ({
           <form onSubmit={handleSubmit}>
           <img src={userImage} className="commentImg"></img>
           <label htmlFor="comment">
-
           </label>
           <input
             name="commenttextArea"
@@ -87,11 +88,12 @@ const CommentCard = ({
         {commentSection.map((comment) => {
       
             const formattedDate = formatDate(comment.created_at)
-           
+      
             return <li key={comment.comment_id} className="commentListItem">
                 <p>by {comment.author} at {formattedDate}</p>
                 <p>"{comment.body}"</p>
                 <p>Votes: {comment.votes}</p>
+                {user && (comment.author == user.name) && <button onClick={handleDelete}>Delete</button>}
               </li>
         }
             )}
