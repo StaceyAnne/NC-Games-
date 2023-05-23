@@ -11,7 +11,7 @@ const Reviews = ( { categories }) => {
   const [sortCategory, setSortCategory] = useState(false)
   const [sortOrder, setSortOrder] = useState(false)
   const [order, setOrder] = useState(false)
-  
+  console.log(reviews[0], order)
 
   useEffect(() => {
     getReviews(category, order).then(({ reviews }) => {
@@ -26,16 +26,16 @@ const Reviews = ( { categories }) => {
     
   }
 
-  const handleOrderClick = () => {
-    // if (sortOrder) setSortOrder(true)
-    setSortOrder(true) 
-    console.log("clicked", sortOrder)
+  const handleOrderClick = (event) => {
+    if (sortOrder) setSortOrder(false)
+    else setSortOrder(true) 
   }
 
 const handleWindowClick = (event) => {
-  if (event.target.value !== "button") 
+  if (event.target.value !== "button")  {
   setSortCategory(false)
-  setSortOrder(false)
+   setSortOrder(false)
+  }
   }
 
   

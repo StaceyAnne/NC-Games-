@@ -6,12 +6,20 @@ const gamesApi = axios.create({
 
 export const getReviews = (category, order) => {
 
-  const orderBy = order || 'asc'; 
+  const orderBy = order || 'desc'; 
   if (category) {
+    console.log("if")
     return gamesApi.get(`/reviews/?sort_by=${category}&order=${orderBy}`).then(({ data }) => {
       return data;
     }); 
   }
+
+  else if (order)
+ {
+  return gamesApi.get(`/reviews/?order=asc`).then(({ data }) => {
+      return data;
+    }); 
+ }  
   
 
   else {

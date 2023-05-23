@@ -273,20 +273,20 @@ a {
   justify-content: center;
 }
 
-.sortBy button {
+.sortBy button, .orderBy button {
   margin-bottom: 0;
-}
+} 
 
 .sortCategoryDropDown,
-.orderBy {
+.orderByDropDown {
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
 }
 
-.sortCategoryDropDown ul,
-.orderByDropDown ul {
+.sortCategoryDropDown ul
+{
   margin: 1vh;
   position: fixed;
   background-color: white;
@@ -300,6 +300,18 @@ a {
   overflow-y: scroll;
 }
 
+.orderByDropDown ul {
+  margin: 1vh;
+    position: fixed;
+    background-color: white;
+    border: solid grey 0.5px;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0 2%;
+}
+
 .sortCategoryDropDown ul li,
 .orderByDropDown ul li {
   margin: 0.5vh 0;
@@ -310,11 +322,17 @@ a {
 .sortCategoryDropDown ul li:hover,
 .orderByDropDown ul li:hover {
   background-color: rgb(192, 189, 189);
+  cursor: pointer;
 }
 
 .sort,
 .sortCategory {
   border-radius: 1vw;
+}
+
+
+.orderByDropDown {
+  background-color: green;
 }
 
 /* single review page */
