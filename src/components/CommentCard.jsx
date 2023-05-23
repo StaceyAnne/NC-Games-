@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { getCommentsByReviewId, postCommentByReviewId } from "../api";
+import { getCommentsByReviewId, postCommentByReviewId, deleteCommentById } from "../api";
 import { formatDate } from "../utils";
 import { useContext } from "react";
 import { SignInContext } from "../contexts/SignIn";
+
 
 const CommentCard = ({
   review,
@@ -50,8 +51,12 @@ const CommentCard = ({
     });
   }
 
-  function handleDelete() {
-    
+  function handleDelete(event) {
+    const commentId = event.target.value; 
+    console.log(commentId)
+    deleteCommentById(commentId).then(() => {
+      return; 
+    })
   }
 
 
@@ -93,7 +98,7 @@ const CommentCard = ({
                 <p>by {comment.author} at {formattedDate}</p>
                 <p>"{comment.body}"</p>
                 <p>Votes: {comment.votes}</p>
-                {user && (comment.author == user.name) && <button onClick={handleDelete}>Delete</button>}
+                {user && (comment.author == user.name) && <button value={comment.comment_id} onClick={handleDelete}>Delete</button>}
               </li>
         }
             )}
