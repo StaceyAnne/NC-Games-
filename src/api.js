@@ -72,3 +72,8 @@ export const getCategories = () =>{
   })
 }
 
+export const deleteCommentById = (id) => {
+  return gamesApi.delete(`/comments/${id}`).then(() => {
+    return;
+  })
+}

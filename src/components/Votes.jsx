@@ -4,11 +4,13 @@ import { patchVoteByReviewId } from "../api";
 const Votes = ({ review, votes }) => {
     const [voteCount, setVoteCount] = useState(votes); 
     const [error, setError] = useState(""); 
+    const [voted, setVoted] = useState()
 
     const handleAddVote = () => {
         setError("")
+         if (voted) return;
         setVoteCount((voteCount) => voteCount + 1) 
-    
+        setVoted(true)
             patchVoteByReviewId(review, 1).then((result) => {
             }).catch(() => {
                 setError("vote failed")
@@ -18,7 +20,9 @@ const Votes = ({ review, votes }) => {
 
     const handleDownVote = () => {
         setError("")
+        if (voted) return; 
         setVoteCount((voteCount) => voteCount - 1) 
+        setVoted(true)
         patchVoteByReviewId(review, -1).then((result) => {
         }).catch(() => {
            setError("vote failed")
@@ -29,7 +33,7 @@ const Votes = ({ review, votes }) => {
     return (
     <div className="voteDiv">
         
-              <p>Add vote:{error}</p>
+              <p>{error}</p>
               <div className="addVoteArrows">
               <button className="addVote" onClick={handleAddVote}>&#8679;</button>
             <p className="voteCount"><span className="star">&#11088;</span> {voteCount} votes </p> 
