@@ -349,6 +349,7 @@ a {
   padding: 0;
   border: solid rgb(81, 121, 177);
   max-width: 400vw;
+  border-radius: 2vw; 
 }
 
 .singleReview img {
@@ -357,23 +358,27 @@ a {
 
 .backReviews {
   margin: 3%;
-  flex-grow: 1;
+}
+
+p.content  {
+  margin: auto; 
 }
 
 .singleReview h2 {
-  background-color: rgb(114, 144, 187);
-  color: white;
+  
+  color: rgb(114, 144, 187);
   margin: 0;
   padding: 2%;
 }
 
 .singleReview p {
-  padding: 2% 6%;
+  padding: 0;
+
 }
 
 p.author {
   padding: 0;
-  margin: 4%;
+  margin: 2vh;
 }
 
 .backReviews {
@@ -386,8 +391,13 @@ p.author {
   margin: 2%;
 }
 
+.content p {
+    text-align: left;
+      padding: 0 2vh;
+}
+
 /*  view on a larger screen */
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 900px) {
   .singleReviewBody {
     display: flex;
     padding: 0;
@@ -411,7 +421,8 @@ p.author {
   }
 
   p.author {
-    margin: 1%;
+    margin: 0vh;
+    padding: 0; 
   }
 
   .reviewInfo {
@@ -427,13 +438,13 @@ p.author {
 /* comment card */
 
 .commentBox {
-  border: solid grey;
+  border: solid grey 2px;
   margin: 1em;
   padding: 0.5em;
+  border-radius: 1vh;
 }
 
 .commentList {
-  background-color: rgb(221, 220, 220);
   margin: 0;
   padding: 0;
 }
@@ -444,14 +455,16 @@ p.author {
 }
 
 li.commentListItem {
-  border-bottom: solid black;
-  border-top: solid grey;
+  border: solid black 2px;
   margin: 1em 0;
   padding: 0;
+  border-radius: 1vh; 
+  background-color: rgb(237, 233, 233);
 }
 
-textarea {
-  width: 50%;
+.commentTextBox {
+  width: 40vw;
+  height: 4vh; 
 }
 
 .errorMessage {
@@ -517,10 +530,16 @@ textarea {
 .addVote,
 .downVote {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: none;
   border-radius: 10%;
   color: white;
+  
+}
+
+p.voteCount {
+  margin: 0; 
+  padding: 0; 
 }
 
 .addVote {
@@ -529,10 +548,13 @@ textarea {
 
 .downVote {
   background-color: rgb(241, 130, 130);
-  padding-bottom: 0;
+  padding: 1vh 1.2vw;
 }
 
 .voteDiv p {
   margin: 0;
-  padding: 1.5%;
+  padding: 0;
 }
+
+
+

@@ -44,38 +44,42 @@ const SingleReview = () => {
         <h2>{singleReview.title}</h2>
         <div className="singleReviewBody">
           <img src={singleReview.review_img_url} alt={singleReview.title}></img>
-          <div className="imgReview">
-            <p className="author">
-              Written by: {<Link to="/users">{singleReview.owner}</Link>} on{" "}
-              {formattedDate}
-            </p>
-            <p>Category: {category}</p>
-            <p className="reviewContent">{singleReview.review_body}</p>
-          </div>
+        </div>
+        <div className="imgReview">
+          <p className="author">
+            Written by: {<Link to="/users">{singleReview.owner}</Link>} on{" "}
+            {formattedDate}
+          </p>
+          <p>Category: {category}</p>
         </div>
         <div className="reviewInfo">
           <Votes review={singleReview.review_id} votes={singleReview.votes} />
           <div className="commentDiv">
             <p>{singleReview.comment_count} comments</p>
-            <button className="commentLink" onClick={handleClick}>
-              View all comments
-            </button>
-            <div className="allComments">
-              <CommentCard
-                review={singleReview.review_id}
-                commentSection={commentSection}
-                setCommentSection={setCommentSection}
-                commentShow={commentShow}
-              />
-            </div>
+            <a href="#commentSection">
+              <button className="commentLink" onClick={handleClick}>
+                View all comments
+              </button>
+            </a>
           </div>
         </div>
+        <div className="content">
+          <p className="reviewContent">{singleReview.review_body}</p>
+        </div> 
         <Link to="/users">
           <button>Sign in here</button>
         </Link>
         <Link to="/">
           <button className="backReviews">Back to reviews</button>
         </Link>
+        <div className="allComments" id="commentSection">
+          <CommentCard
+            review={singleReview.review_id}
+            commentSection={commentSection}
+            setCommentSection={setCommentSection}
+            commentShow={commentShow}
+          />
+        </div>
       </section>
       <section className=""></section>
     </div>

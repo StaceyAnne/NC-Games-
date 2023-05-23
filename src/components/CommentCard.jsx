@@ -53,33 +53,6 @@ const CommentCard = ({
 
   if (loading) return <p>Loading....</p>;
 
-  // if (commentShow) {
-  //   return (
-  //     <section className="commentBox">
-  //       <ul className="commentList">
-  //         <h4>Comments: </h4>
-  //         {commentSection.length <= 0 && (
-  //           <p className="no comments">No comments to show</p>
-  //         )}
-  //         {commentSection.map((comment) => {
-  //           const formattedDate = formatDate(comment.comment_id);
-  //           return (
-  //             <li key={comment.comment_id} className="commentListItem">
-  //               <p>
-  //                 by {comment.author} at {formattedDate}
-  //               </p>
-
-{/* const CommentCard = ({review, commentSection, setCommentSection, commentShow}) => {
-    const [loading, setLoading] = useState(true)    
-
-    useEffect(() => {
-        getCommentsByReviewId(review).then(({ comments } ) => {
-           setCommentSection(comments)
-           setLoading(false)
-       }) 
-    }, [commentShow]) */}
-
-    {/* if (loading) return <p>Loading....</p> */}
 
     if (commentShow) {
             if (commentSection.length === 0) return <p>No comments to show</p>
