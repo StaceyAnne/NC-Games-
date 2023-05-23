@@ -454,12 +454,19 @@ p.author {
   padding: 1em;
 }
 
+img.commentImg {
+  width: 8vw; 
+  height: auto; 
+  border-radius: 100%;  
+ 
+}
+
 li.commentListItem {
   border: solid black 2px;
   margin: 1em 0;
   padding: 0;
   border-radius: 1vh; 
-  background-color: rgb(237, 233, 233);
+
 }
 
 .commentTextBox {
@@ -472,6 +479,13 @@ li.commentListItem {
   font-weight: bold;
 }
 
+
+form {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+}
 /* user */
 
 .userCard {
