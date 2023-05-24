@@ -396,49 +396,29 @@ p.author {
       padding: 0 2vh;
 }
 
-/*  view on a larger screen */
-@media only screen and (min-width: 900px) {
-  .singleReviewBody {
-    display: flex;
-    padding: 0;
-    min-height: 40vh;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-  }
+ 
+ @media only screen and (min-width: 900px) {
+   .singleReview {
+    display: grid; 
+    grid-template-columns: [first] 25% [line2] 25% [line3] 25%; 
+    grid-template-rows: [row1] 25% [row2] 25%; 
+   }
 
-  .singleReview {
-    max-width: 60vw;
-  }
+   h2 {
+    grid-row-start: row1;
+    grid-row-end: row1;
+    grid-column-start: first; 
+    grid-column-end: line3;
+    
+   }
 
-  .singleReview img {
-    width: 40%;
-    margin: 0;
-    padding: 4%;
-    border-radius: 2vh; 
-  }
-
-  p.reviewContent {
-    width: 60%;
-    padding: 4% 4% 4% 0;
-    margin: 0%;
-    text-align: left;
-  }
-
-  p.author {
-    margin: 0vh;
-    padding: 0; 
-  }
-
-  .reviewInfo {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .imgReview {
-    margin: 2%;
-  }
-}
+   .singleReviewBody {
+    grid-row-start: row2;
+      grid-row-end: line2;
+      grid-column-start: first;
+      grid-column-end: first; 
+   }
+} 
 
 /* comment card */
 
@@ -460,7 +440,7 @@ p.author {
 }
 
 img.commentImg {
-  width: 8vw; 
+  width: 5vw; 
   height: auto; 
   border-radius: 100%;  
  
