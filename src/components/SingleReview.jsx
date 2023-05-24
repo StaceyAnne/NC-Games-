@@ -42,10 +42,10 @@ const SingleReview = () => {
     <div className="singleItem">
       <section className="singleReview">
         <h2>{singleReview.title}</h2>
-        <div className="singleReviewBody">
+        <div className="singleReviewBodyImg">
           <img src={singleReview.review_img_url} alt={singleReview.title}></img>
         </div>
-        <div className="imgReview">
+        <div className="reviewDetails">
           <p className="author">
             Written by: {<Link to="/users">{singleReview.owner}</Link>} on{" "}
             {formattedDate}
@@ -65,13 +65,15 @@ const SingleReview = () => {
         </div>
         <div className="content">
           <p className="reviewContent">{singleReview.review_body}</p>
-        </div> 
-        <Link to="/users">
-          <button>Sign in here</button>
-        </Link>
-        <Link to="/">
-          <button className="backReviews">Back to reviews</button>
-        </Link>
+        </div>
+        <div className="buttons">
+          <Link to="/users">
+            <button>Sign in here</button>
+          </Link>
+          <Link to="/">
+            <button className="backReviews">Back to reviews</button>
+          </Link>
+        </div>
         <div className="allComments" id="commentSection">
           <CommentCard
             review={singleReview.review_id}
