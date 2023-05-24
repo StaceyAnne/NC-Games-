@@ -65,14 +65,14 @@ const SingleReview = () => {
         </div>
         <div className="content">
           <p className="reviewContent">{singleReview.review_body}</p>
-        </div> 
+        </div>
         <div className="buttons">
-        <Link to="/users">
-          <button>Sign in here</button>
-        </Link>
-        <Link to="/">
-          <button className="backReviews">Back to reviews</button>
-        </Link>
+          <Link to="/users">
+            <button>Sign in here</button>
+          </Link>
+          <Link to="/">
+            <button className="backReviews">Back to reviews</button>
+          </Link>
         </div>
         <div className="allComments" id="commentSection">
           <CommentCard

@@ -8,7 +8,6 @@ const Nav = ({ categories, setCategories }) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // need to refactor into promise all
   useEffect(() => {
     getReviews().then(({ reviews }) => {
       const topReviews = reviews.filter((review, index) => {
