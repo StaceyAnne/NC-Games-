@@ -396,28 +396,77 @@ p.author {
       padding: 0 2vh;
 }
 
+.reviewDetails p {
+  font-weight: bold; 
+}
+
  
  @media only screen and (min-width: 900px) {
+
+
    .singleReview {
     display: grid; 
-    grid-template-columns: [first] 25% [line2] 25% [line3] 25%; 
-    grid-template-rows: [row1] 25% [row2] 25%; 
+    grid-template-columns: [first] 35% [line2] 45% ;
+    grid-template-rows: [row1] 12vh [row2] 10vh [row3] 20vh [row4] 25vh [row5] 15vh [row6] 1fr; 
    }
 
    h2 {
     grid-row-start: row1;
     grid-row-end: row1;
     grid-column-start: first; 
-    grid-column-end: line3;
+    grid-column-end: span line3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     
    }
 
-   .singleReviewBody {
+   .content {
+      grid-row-start: row3;
+        grid-column-start: line2;
+        
+   }
+   
+   .singleReviewBodyImg {
     grid-row-start: row2;
-      grid-row-end: line2;
+      grid-row-end: row3;
       grid-column-start: first;
       grid-column-end: first; 
+      
+      
    }
+   .singleReview img {
+    border-radius: 1vh;
+    max-height: 28vh; 
+   }
+
+   .reviewInfo {
+    grid-row-start: row4;
+    grid-column-start:first;
+   }
+
+   .reviewDetails {
+    grid-row-start: row2;
+    grid-row-end: row2; 
+    grid-column-start: line2;
+    grid-column-end: line3; 
+   }
+
+   .buttons {
+    grid-row-start: row5;
+    grid-column-start: first; 
+   }
+
+   .buttons button {
+    margin: 0 2vw;
+   }
+
+   .allComments {
+    grid-row-start: row6;
+    grid-column-start: first;
+    grid-column-end: span line3; 
+   }
+
 } 
 
 /* comment card */
@@ -533,6 +582,8 @@ form {
   border: none;
   border-radius: 10%;
   color: white;
+  width: 6vw;
+  height: auto; 
   
 }
 
@@ -547,7 +598,7 @@ p.voteCount {
 
 .downVote {
   background-color: rgb(241, 130, 130);
-  padding: 1vh 1.2vw;
+  
 }
 
 .voteDiv p {
