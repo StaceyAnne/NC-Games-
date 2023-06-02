@@ -104,6 +104,11 @@ a {
 }
 
 @media only screen and (max-width: 900px) {
+ 
+   h1 {
+    padding-right: 15vw; 
+   }
+
   .signInImage {
     display: none;
   }
@@ -233,6 +238,7 @@ a {
   flex-direction: row;
   justify-content: center;
   margin: 1%;
+  padding: 0; 
 }
 
 .reviewList li {
@@ -263,7 +269,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: first baseline;
+  align-items: center;
   margin: 0;
 }
 
@@ -271,11 +277,15 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+ 
+
 }
 
 .sortBy button,
 .orderBy button {
   margin-bottom: 0;
+  width: 25vw;
 }
 
 .sortCategoryDropDown,
