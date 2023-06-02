@@ -69,9 +69,9 @@ const CommentCard = ({
   if (loading) return <p>Loading....</p>;
 
   if (commentShow) {
-    if (commentSection.length === 0) return <p>No comments to show</p>;
     return (
       <section className="commentBox">
+        {commentSection.length === 0 &&  <p>No comments to show</p>}
         <form onSubmit={handleSubmit}>
           <img src={userImage} className="commentImg"></img>
           <label htmlFor="comment"></label>
